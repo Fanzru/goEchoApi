@@ -1,10 +1,8 @@
 package controllers
 
 import (
-	"fmt"
 	"github.com/kamva/mgm/v3"
 	"github.com/labstack/echo/v4"
-	Utils "goEchoApi/Utils"
 	"goEchoApi/models"
 	"net/http"
 )
@@ -38,11 +36,8 @@ func Create(c echo.Context) error {
 
 	// To get model's collection, just call to mgm.Coll() method.
 	err := mgm.Coll(user).Create(user)
-
-	Utils.PrintMaptoJSON(user)
 	if err != nil {
 		// Log your error
-		fmt.Println("====================",err.Error())
 		return c.JSON(http.StatusInternalServerError,internalError)
 	}
 
