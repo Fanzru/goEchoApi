@@ -40,6 +40,5 @@ func Create(c echo.Context) error {
 		// Log your error
 		return c.JSON(http.StatusInternalServerError,internalError)
 	}
-
 	return c.JSON(http.StatusOK, user)
 }
